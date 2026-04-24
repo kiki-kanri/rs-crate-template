@@ -5,13 +5,13 @@ set -euo pipefail
 SCRIPTS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 cd "${SCRIPTS_DIR}"
 
-if ! git diff-index --quiet HEAD --; then
+if [ -n "$(git status --porcelain)" ]; then
     echo 'Error: There are uncommitted changes in your working directory'
     echo 'Please commit or discard the changes before proceeding'
     exit 1
 fi
 
-cargo format
+cargo +nightly fmt --all -- --check
 cargo lint
 cargo t --all-features
 cargo b -r --all-features
