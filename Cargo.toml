@@ -2,6 +2,7 @@
 name = "crate-name"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.95"
 
 description = ""
 # documentation = "https://docs.rs/crate-name"
@@ -36,6 +37,9 @@ include = [
 # Optional cargo/tool metadata.
 # [package.metadata]
 
+
+[package.metadata.docs.rs]
+all-features = true
 
 # =============================================================================
 # Lints
