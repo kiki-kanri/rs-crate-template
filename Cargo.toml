@@ -141,9 +141,8 @@ missing_crate_level_docs = "allow"
 [features]
 default = []
 
-# Convenience aliases.
-all = []
-full = ["all"]
+# Enables every feature.
+full = []
 
 # Example:
 # serde = ["dep:serde"]
